@@ -44,11 +44,11 @@ More examples and features will be available on [GitHub](https://www.github.com/
 
 ## Contributing
 
-We absolutely love contributions! If you would like to contribute to `sportradar`, please follow these steps:
+We absolutely love contributions! If you would like to contribute to `sportradar-unofficial`, please follow these steps:
 
 ### Setting up the Project
 
-1. Fork the repository: On the top-right of this page, click on the Fork button. This creates a copy of the `sportradar` repository in your own GitHub account.
+1. Fork the repository: On the top-right of this page, click on the Fork button. This creates a copy of the `sportradar-unofficial` repository in your own GitHub account.
 
 2. Clone the repository: Now, clone this new repository onto your local machine. This creates a local copy that you can edit.
 
