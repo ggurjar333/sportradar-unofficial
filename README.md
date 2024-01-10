@@ -16,12 +16,6 @@ The use of this package requires valid API credentials issued by Sportradar. By 
 
 It is highly recommended to review Sportradar's terms of service and privacy policy before using this package. If you have any legal or privacy concerns, please refrain from using this software.
 
-### Contact Information
-
-For any inquiries or concerns, please contact:
-
-Gaurav Gurjar
-- [LinkedIn](https://www.linkedin.com/in/ggurjarsocl/)
 ---
 
 **An unofficial python package to access Sportradar NFL APIs**
@@ -46,7 +40,7 @@ A list of notebooks and articles related to large language models.
 | 🧐 NFL-Stats Examples | Simulation and Game Feeds ETL pipeline           | <a href="https://colab.research.google.com/drive/1qKTaGMNYZBAve7JCDEhtISV_sAf0RcEy?usp=sharing"><img src="img/colab.svg" alt="Open In Colab"></a> |
 
 
-Complete documentation with more examples and features is available on [GitHub](https://www.github.com/ggurjar333/sportradar-unofficial)
+More examples and features will be available on [GitHub](https://www.github.com/ggurjar333/sportradar-unofficial)
 
 ## Contributing
 
@@ -59,7 +53,7 @@ We absolutely love contributions! If you would like to contribute to `sportradar
 2. Clone the repository: Now, clone this new repository onto your local machine. This creates a local copy that you can edit.
 
    ```bash
-   git clone https://github.com/<your-username>/sportradar-unofficial.git
+   git clone https://github.com/ggurjar333/sportradar-unofficial.git
    ```
 
 3. Create a new branch for your changes: Use `git checkout -b branch-name` to create a new branch and switch to it. The branch name could be the feature you want to add or fix.
@@ -101,3 +95,10 @@ This project is licensed under the MIT License. Please see the [LICENSE.txt](LIC
 ## Acknowledgements
 
 Shout out to all the Sports enthusiasts and Data Engineers/Scientists!
+
+### Contact Information
+
+For any inquiries or concerns, please contact:
+
+Gaurav Gurjar
+- [LinkedIn](https://www.linkedin.com/in/ggurjarsocl/)
