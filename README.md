@@ -50,7 +50,44 @@ Complete documentation with more examples and features is available on [GitHub](
 
 ## Contributing
 
-Contributions are always welcome! Please read our [Contributing Guidelines](https://www.github.com/ggurjar333/sportradar-unofficial) before submitting a pull request.
+We absolutely love contributions! If you would like to contribute to `sportradar`, please follow these steps:
+
+### Setting up the Project
+
+1. Fork the repository: On the top-right of this page, click on the Fork button. This creates a copy of the `sportradar` repository in your own GitHub account.
+
+2. Clone the repository: Now, clone this new repository onto your local machine. This creates a local copy that you can edit.
+
+   ```bash
+   git clone https://github.com/<your-username>/sportradar-unofficial.git
+   ```
+
+3. Create a new branch for your changes: Use `git checkout -b branch-name` to create a new branch and switch to it. The branch name could be the feature you want to add or fix.
+
+### Making the Changes
+
+1. Make the changes in your local copy of the repository.
+
+2. Test your changes thoroughly to ensure everything is working as expected.
+
+3. Document your changes. Make sure your code is commented and the repository documentation is updated to reflect your changes.
+
+### Submitting Contributions
+
+1. Stage and commit your changes: Once you are satisfied with your changes, stage and commit them.
+
+   ```bash
+   git add .
+   git commit -m "Your detailed commit message"
+   ```
+
+2. Push your changes to your forked repository on GitHub.
+
+   ```bash
+   git push origin branch-name
+   ```
+
+3. Create a Pull Request: Go to your forked repository on
 
 ## Author(s)
 - [John Bonnett](https://www.linkedin.com/in/john-bonnett-ba89909b/)
