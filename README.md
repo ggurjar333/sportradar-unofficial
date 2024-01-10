@@ -10,8 +10,18 @@ You can install the `sportradar-unofficial` python package via pip:
 ```bash
 pip install sportradar-unofficial
 ```
-## Usage
-For an interactive QuickStart guide, click [:notebook: Google Colab Notebook](<your-shared-colab-notebook-link>) to view our Google Colaboratory notebook.
+
+## 📝 Notebooks
+
+A list of notebooks and articles related to large language models.
+
+### Tools
+
+| Notebook              | Description                                      | Notebook |
+|-----------------------|--------------------------------------------------|----------|
+| 🧐 NFL-Stats Examples | Simulation and Game Feeds ETL pipeline           | <a href="https://colab.research.google.com/drive/1qKTaGMNYZBAve7JCDEhtISV_sAf0RcEy?usp=sharing"><img src="img/colab.svg" alt="Open In Colab"></a> |
+
+
 Complete documentation with more examples and features is available on [GitHub](https://www.github.com/ggurjar333/sportradar-unofficial)
 
 ## Contributing
