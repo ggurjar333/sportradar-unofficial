@@ -5,7 +5,7 @@ from dotenv import load_dotenv, find_dotenv
 import redis
 import json
 
-from src.sportsradar.logging_helpers import get_logger
+from sportradar.logging_helpers import get_logger
 
 logger = get_logger(__name__)
 load_dotenv(find_dotenv())
