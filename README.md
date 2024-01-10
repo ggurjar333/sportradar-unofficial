@@ -1,4 +1,28 @@
-# Sportradar Python Package
+# Sportradar Unofficial
+## Disclaimer
+
+This Python package provides access to sport data API offered by Sportradar. Please read and understand the following disclaimer before using this package:
+
+### Usage
+
+The use of this package requires valid API credentials issued by Sportradar. By using this package, you acknowledge and agree to the following:
+
+1. This software is provided 'as is' and without any warranty, express or implied.
+2. The developer is not responsible for any issues, damages, or consequences arising from the use of this package.
+3. Any use of the API credentials is solely your responsibility, and you must comply with Sportradar's terms of service and usage policies.
+4. The developer does not claim any endorsement or authorization from Sportradar for the development or distribution of this package.
+
+### Recommendations
+
+It is highly recommended to review Sportradar's terms of service and privacy policy before using this package. If you have any legal or privacy concerns, please refrain from using this software.
+
+### Contact Information
+
+For any inquiries or concerns, please contact:
+
+Gaurav Gurjar
+- [LinkedIn](https://www.linkedin.com/in/ggurjarsocl/)
+---
 
 **An unofficial python package to access Sportradar NFL APIs**
 
