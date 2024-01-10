@@ -7,13 +7,11 @@ This package allows you to easily extract sports data for analysis and predictiv
 ## Installation
 
 You can install the `sportradar-unofficial` python package via pip:
-
-## Usage
-
-Here's a quick example of how you can use this package:
-```python
-import sportradar
+```bash
+pip install sportradar-unofficial
 ```
+## Usage
+For an interactive QuickStart guide, click [:notebook: Google Colab Notebook](<your-shared-colab-notebook-link>) to view our Google Colaboratory notebook.
 Complete documentation with more examples and features is available on [GitHub](https://www.github.com/ggurjar333/sportradar-unofficial)
 
 ## Contributing
