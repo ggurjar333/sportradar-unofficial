@@ -24,7 +24,7 @@ jobs:
 
       - name: Linting with Ruff
         run: |
-          ruff . --recursive
+          ruff check --fix .
 
       - name: Build package
         run: |
