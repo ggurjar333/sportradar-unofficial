@@ -31,7 +31,7 @@ pip install sportradar-unofficial
 
 ## 📝 Notebooks
 
-A list of notebooks and articles related to large language models.
+A list of notebooks and articles related to ETL pipelines.
 
 ### Tools
 
