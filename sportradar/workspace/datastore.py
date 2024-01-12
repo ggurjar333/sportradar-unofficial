@@ -93,9 +93,9 @@ def save_data(response, db_uri, database, collection):
     if database is None:
         raise ValueError("MongoDB environment variable not set.")
     else:
-        print(database)
         db = mongo_client[database]
         db[collection].insert_one(response.json())
+        print("Saved data to MongoDB.")
 
 
 class SportRadarFetcher:
