@@ -1,5 +1,4 @@
 import os
-from typing import List, Dict
 from urllib3.util.retry import Retry
 from pydantic import HttpUrl
 from requests.adapters import HTTPAdapter
@@ -10,6 +9,8 @@ from pymongo.server_api import ServerApi
 from sportradar import logging_helpers
 
 logger = logging_helpers.get_logger(__name__)
+SERVER_API = "1"
+PORT = 27017
 
 
 # load_dotenv("../../../../../.env")
@@ -50,6 +51,51 @@ def setup_http_session():
     session.mount("http://", adapter)
     session.mount("https://", adapter)
     return session
+
+
+def get_data_from_mongodb(db_uri, database, collection: str):
+    """
+    Args:
+        db_uri: The URI of the MongoDB server.
+        database: The name of the database to connect to.
+        collection: The name of the collection to fetch data from.
+
+    Returns:
+        The response from the fetch operation.
+
+    Raises:
+        Exception: If there is an error while getting data from the MongoDB server.
+
+    """
+    try:
+        response = fetch_from_database(db_uri, database, collection)
+        return response
+    except Exception as e:
+        logger.error(f"Error getting data from MONGODB_DATABASE: {e}")
+
+
+def fetch_from_database(db_uri, database, collection):
+    """
+    Fetches data from a MongoDB collection.
+
+    Args:
+        db_uri (str): The URI for connecting to the MongoDB server.
+        database (str): The name of the database to fetch data from.
+        collection (str): The name of the collection to fetch data from.
+
+    Returns:
+        cursor: A cursor object containing the fetched data.
+
+    Raises:
+        ValueError: If the database environment variable is not set.
+
+    """
+    mongo_client = MongoClient(host=db_uri, server_api=ServerApi(SERVER_API), port=PORT)
+    if database is None:
+        raise ValueError("MongoDB environment variable not set.")
+    else:
+        db = mongo_client[database]
+        return list(db[collection].find())
 
 
 def save_data(response, db_uri, database, collection):
@@ -95,10 +141,10 @@ class SportRadarFetcher:
     def __init__(self, timeout: float = 30):
         self.timeout = timeout
         self.http = setup_http_session()
-        self.mongo_client = create_mongo_client()
-        self.mongo_db = os.getenv("MONGODB_DATABASE")
-        if self.mongo_db is None:
-            raise ValueError("MongoDB environment variable for Database not set.")
+        # self.mongo_client = create_mongo_client()
+        # self.mongo_db = os.getenv("MONGODB_DATABASE")
+        # if self.mongo_db is None:
+        #     raise ValueError("MongoDB environment variable for Database not set.")
 
     def _fetch_from_url(self, url: HttpUrl) -> requests.Response:
         logger.info(f"Retrieving {url} from SportsRadar")
@@ -144,14 +190,4 @@ class DataStore:
                 return response
         except requests.exceptions.RequestException as e:
             logger.error(f"Error fetching URL {url}: {str(e)}")
-            raise
-
-    def get_data_from_database(self, collection: str) -> List[Dict]:
-        try:
-            client = self.fetcher.mongo_client
-            db = client[self.fetcher.mongo_db]
-            data = db[collection].find()
-            return list(data)
-        except Exception as e:
-            logger.error(f"Error getting data from MONGODB_DATABASE: {str(e)}")
             raise
