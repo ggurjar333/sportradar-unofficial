@@ -6,7 +6,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name='sportradar_unofficial',
-    version='0.1.7',
+    version='0.1.8',
     packages=find_packages(),
     install_requires=[
         'urllib3',
@@ -15,7 +15,8 @@ setup(
         'pymongo',
         'redis',
         'python-dotenv'
-        'coloredlogs>=15.0.1,<16.0.0'
+        'coloredlogs',
+        # 'coloredlogs>=15.0.1,<16.0.0'
     ],
     author='Gaurav Gurjar, John Bonnett, John Bassie',
     author_email='ggurjar333@gmail.com',
