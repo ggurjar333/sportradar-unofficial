@@ -1,4 +1,3 @@
-import os
 from urllib3.util.retry import Retry
 from pydantic import HttpUrl
 from requests.adapters import HTTPAdapter
@@ -11,28 +10,6 @@ from sportradar import logging_helpers
 logger = logging_helpers.get_logger(__name__)
 SERVER_API = "1"
 PORT = 27017
-
-
-# load_dotenv("../../../../../.env")
-
-
-def create_mongo_client():
-    """Create a MongoDB client connection.
-
-    This method retrieves the MongoDB URL from the environment variable MONGODB_URL.
-    It then creates a MongoClient instance using the retrieved URL, along with a specified server API version and default port.
-
-    Returns:
-        MongoClient: An instance of the MongoDB client.
-
-    Raises:
-        ValueError: If the MONGODB_URL environment variable is not set.
-    """
-    mongo_url = os.getenv("MONGODB_URL")
-    if mongo_url is None:
-        raise ValueError("MongoDB environment variable for URL not set.")
-    return MongoClient(host=mongo_url, server_api=ServerApi("1"), port=27017)
-
 
 def setup_http_session():
     """
@@ -141,10 +118,6 @@ class SportRadarFetcher:
     def __init__(self, timeout: float = 30):
         self.timeout = timeout
         self.http = setup_http_session()
-        # self.mongo_client = create_mongo_client()
-        # self.mongo_db = os.getenv("MONGODB_DATABASE")
-        # if self.mongo_db is None:
-        #     raise ValueError("MongoDB environment variable for Database not set.")
 
     def _fetch_from_url(self, url: HttpUrl) -> requests.Response:
         logger.info(f"Retrieving {url} from SportsRadar")
