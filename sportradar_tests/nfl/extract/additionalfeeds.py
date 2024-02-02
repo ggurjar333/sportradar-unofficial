@@ -3,7 +3,7 @@ import os
 import unittest
 from datetime import datetime
 from sportradar.nfl.extract.additionalfeeds import AdditionalFeeds
-from sportradar.nfl.workspace import save_data
+from sportradar.nfl.workspace.datastore import save_data
 
 load_dotenv("../../../.env")
 
@@ -13,9 +13,9 @@ class TestConstants:
     VERSION = "v7"
     LANGUAGE_CODE = "en"
     FORMAT = "json"
-    API_KEY = f'{os.environ.get("APIKEY")}'
-    MONGODB_URL = f"{os.environ.get('MONGODB_URL')}"
-    MONGODB_DATABASE = f"{os.environ.get('MONGODB_DATABASE')}"
+    API_KEY = f'{os.environ.get("APIKEY")}' # Change the API KEY here
+    MONGODB_URL = f"{os.environ.get('MONGODB_URL')}" # Change the MONGODB_URL here
+    MONGODB_DATABASE = f"{os.environ.get('MONGODB_DATABASE')}" # Change the MONGODB_Database here
 
 
 class TestAdditionalFeeds(unittest.TestCase):
