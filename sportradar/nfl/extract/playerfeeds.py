@@ -1,5 +1,5 @@
 from sportradar import logging_helpers
-from sportradar.workspace.datastore import DataStore, SportRadarFetcher
+from sportradar.nfl.workspace.datastore import DataStore, SportRadarFetcher
 
 
 logger = logging_helpers.get_logger(__name__)

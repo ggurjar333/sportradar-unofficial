@@ -1,5 +1,5 @@
 import requests
-from sportradar.simulation.config import Config
+from sportradar.nfl.simulation.config import Config
 
 
 def create_session(url: str, recording_id: str):

@@ -2,8 +2,8 @@ from dotenv import load_dotenv
 import os
 import unittest
 from datetime import datetime
-from sportradar.extract.draftfeeds import DraftsFeeds
-from sportradar.workspace.datastore import save_data
+from sportradar.nfl.extract import DraftsFeeds
+from sportradar.nfl.workspace import save_data
 
 load_dotenv("../../../.env")
 

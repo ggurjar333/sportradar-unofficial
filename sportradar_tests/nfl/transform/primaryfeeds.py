@@ -2,7 +2,7 @@ import os
 import unittest
 from dotenv import load_dotenv
 
-from sportradar.transform.primaryfeeds import PrimaryFeedsTransformer
+from sportradar.nfl.transform.primaryfeeds import PrimaryFeedsTransformer
 
 load_dotenv("../../.env")
 
