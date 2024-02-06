@@ -1,7 +1,7 @@
 import requests
-from sportradar.simulation.available_recordings import AvailableRecordings
-from sportradar.simulation.session import create_session
-from sportradar.simulation.config import Config
+from sportradar.nfl.simulation.available_recordings import AvailableRecordings
+from sportradar.nfl.simulation.session import create_session
+from sportradar.nfl.simulation.config import Config
 
 GAME_FEEDS_TYPE = "replay"
 

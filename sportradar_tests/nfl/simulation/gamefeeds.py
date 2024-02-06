@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import patch
-from sportradar.simulation.session import create_session
-from sportradar.simulation import gamefeeds
-from sportradar.simulation.config import Config
+from sportradar.nfl.simulation import create_session
+from sportradar.nfl.simulation import gamefeeds
+from sportradar.nfl.simulation import Config
 
 
 def _mock_get_response(mock_get, response_dict):

@@ -1,7 +1,7 @@
 import unittest
 import os
 
-from sportradar.workspace.resource_cache import (
+from sportradar.nfl.workspace import (
     AbstractCache,
     RedisCache,
     NFLStatsResourceKey,
