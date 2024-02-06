@@ -3,7 +3,7 @@ import os
 import unittest
 from datetime import datetime
 from sportradar.nfl.extract.gamefeeds import GameFeeds
-from sportradar.nfl.workspace import save_data
+from sportradar.nfl.workspace.datastore import save_data
 
 load_dotenv("../../../.env")
 
