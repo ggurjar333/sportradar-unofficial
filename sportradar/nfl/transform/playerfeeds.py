@@ -1,4 +1,4 @@
-from src.sportsradar import logging_helpers
+from sportsradar import logging_helpers
 
 logger = logging_helpers.get_logger(__name__)
 
