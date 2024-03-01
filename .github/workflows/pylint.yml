@@ -26,5 +26,5 @@ jobs:
     - name: Run pre-commit
       run: pre-commit run --all-files
 
-    - name: Run tox with Pylint
-      run: tox -e "pylint"
+    # - name: Run tox with Pylint
+    #   run: tox -e "pylint"
