@@ -1,8 +1,4 @@
-from sportradar import logging_helpers
 from sportradar.nfl.workspace.datastore import DataStore, SportRadarFetcher
-
-
-logger = logging_helpers.get_logger(__name__)
 
 
 class PlayerFeeds:
@@ -29,12 +25,8 @@ class PlayerFeeds:
         :param api_key:
         :return: The game boxscore for the given game_id
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/players/{player_id}/profile.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result

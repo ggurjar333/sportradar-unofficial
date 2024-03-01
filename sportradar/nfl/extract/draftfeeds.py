@@ -1,8 +1,4 @@
-from sportradar import logging_helpers
 from sportradar.nfl.workspace.datastore import DataStore, SportRadarFetcher
-
-logger = logging_helpers.get_logger(__name__)
-
 
 class DraftsFeeds:
     """This class is reponsible for extraction of draft feeds from SportRadar."""
@@ -28,14 +24,10 @@ class DraftsFeeds:
         :param api_key:
         :return: The draft_summary for the given year
         """
-        if not api_key:
-            logger.error("API key not found in environemnt variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/{year}/draft.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully")
         return result
 
     def get_prospects(
@@ -51,14 +43,10 @@ class DraftsFeeds:
         :param api_key:
         :return: The prospects for the given year
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/{year}/prospects.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result
 
     def get_team_draft_summary(
@@ -75,14 +63,10 @@ class DraftsFeeds:
         :param api_key:
         :return: The team draft summary for the given team year,
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/{year}/teams/{team_id}/draft.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result
 
     def get_top_prospects(
@@ -98,14 +82,10 @@ class DraftsFeeds:
         :param api_key:
         :return: The team top prospects for the given year
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/{year}/top_prospects/.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result
 
     def get_trades(
@@ -121,12 +101,8 @@ class DraftsFeeds:
         :param api_key:
         :return: The team top prospects for the given year
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/{year}/trades/.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result

@@ -1,8 +1,4 @@
-from sportradar import logging_helpers
 from sportradar.nfl.workspace.datastore import DataStore, SportRadarFetcher
-
-logger = logging_helpers.get_logger(__name__)
-
 
 class AdditionalFeeds:
     """This class is responsible for extracting additional feeds from SportRadar."""
@@ -38,14 +34,10 @@ class AdditionalFeeds:
         :param api_key:
         :return: The weeekly depth charts for the given year, nfl_season, nfl_season_week
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/seasons/{year}/{nfl_season}/{nfl_season_week}/depth_charts.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result
 
     def get_daily_change_log(
@@ -69,14 +61,10 @@ class AdditionalFeeds:
         :param format:
         :param api_key:
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/league/{year}/{month}/{day}/changes.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result
 
     def get_daily_transactions(
@@ -100,14 +88,10 @@ class AdditionalFeeds:
         :param format:
         :param api_key:
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/league/{year}/{month}/{day}/transactions.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result
 
     def get_league_hierarchy(
@@ -123,14 +107,10 @@ class AdditionalFeeds:
 
         return: The league hierarchy
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/league/hierarchy.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result
 
     def get_postgame_standings(
@@ -154,14 +134,10 @@ class AdditionalFeeds:
         :param api_key:
         :return: The postgame standings  for the given year, nfl_season
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/seasons/{year}/{nfl_season}/standings/season.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result
 
     def get_seasons(self, access_level, version, language_code, file_format, api_key):
@@ -174,14 +150,10 @@ class AdditionalFeeds:
         :param api_key:
         :return: The seasons data
         """
-        if not api_key:
-            logger.error("API key not found in environment variables")
-            raise ValueError("API key not found in environemt variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/league/seasons.{file_format}?api_key={api_key}"
         )
-        logger.info("Data Retrieved successfully.")
         return result
 
     def get_weekly_injuries(
@@ -207,12 +179,8 @@ class AdditionalFeeds:
         :param api_key:
         :return: The weeekly injuries for the given year, nfl_season, nfl_season_week
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/seasons/{year}/{nfl_season}/{nfl_season_week}/injuries.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result

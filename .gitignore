@@ -3,3 +3,4 @@
 build
 sportradar_unofficial.egg-info
 dist
+__pycache__

@@ -1,7 +1,4 @@
-from sportradar import logging_helpers
 from sportradar.nfl.workspace.datastore import DataStore, SportRadarFetcher
-
-logger = logging_helpers.get_logger(__name__)
 
 
 class GameFeeds:
@@ -28,14 +25,10 @@ class GameFeeds:
         :param api_key:
         :return: The game boxscore for the given game_id
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/games/{game_id}/boxscore.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result
 
     def get_game_roster(
@@ -50,14 +43,10 @@ class GameFeeds:
         :param file_format:
         :param api_key:
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/games/{game_id}/roster.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result
 
     def get_game_statistics(
@@ -72,14 +61,10 @@ class GameFeeds:
         :param file_format:
         :param api_key:
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/games/{game_id}/statistics.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result
 
     def get_game_pbp(
@@ -94,12 +79,8 @@ class GameFeeds:
         :param file_format:
         :param api_key:
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/games/{game_id}/pbp.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result

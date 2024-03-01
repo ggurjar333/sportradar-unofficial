@@ -5,9 +5,6 @@ import requests
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 
-from sportradar import logging_helpers
-
-logger = logging_helpers.get_logger(__name__)
 SERVER_API = "1"
 PORT = 27017
 
@@ -49,7 +46,7 @@ def get_data_from_mongodb(db_uri, database, collection: str):
         response = fetch_from_database(db_uri, database, collection)
         return response
     except Exception as e:
-        logger.error(f"Error getting data from MONGODB_DATABASE: {e}")
+        return f"Error getting data from MONGODB_DATABASE: {e}"
 
 
 def fetch_from_database(db_uri, database, collection):
@@ -121,10 +118,8 @@ class SportRadarFetcher:
         self.http = setup_http_session()
 
     def _fetch_from_url(self, url: HttpUrl) -> requests.Response:
-        logger.info(f"Retrieving {url} from SportsRadar")
         response = self.http.get(url, timeout=self.timeout)
         if response.status_code == requests.codes.ok:
-            logger.debug(f"Successfully downloaded from {url}")
             return response
         raise ValueError(f"Could not download from {url}: {response.text}")
 
@@ -132,7 +127,6 @@ class SportRadarFetcher:
         try:
             return self._fetch_from_url(url)
         except requests.exceptions.RequestException as e:
-            logger.error(f"Error fetching URL {url}: {str(e)}")
             raise
 
 
@@ -163,5 +157,5 @@ class DataStore:
                 self.data.update({url: response.json()})
                 return response
         except requests.exceptions.RequestException as e:
-            logger.error(f"Error fetching URL {url}: {str(e)}")
             raise
+        

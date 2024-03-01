@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import patch
 import requests
-from sportradar.nfl.simulation import create_session
+from sportradar.nfl.simulation.session import create_session
 from sportradar.nfl.simulation.available_recordings import AvailableRecordings
-from sportradar.nfl.simulation import Config
+from sportradar.nfl.simulation.config import Config
 
 
 class TestCreateSession(unittest.TestCase):

@@ -15,7 +15,6 @@ setup(
         'pymongo',
         'redis',
         'python-dotenv',
-        'coloredlogs',
     ],
     author='Gaurav Gurjar, John Bonnett, John Bassie',
     author_email='ggurjar333@gmail.com',
