@@ -1,1 +1,1 @@
-"""Unit tests for workspace src.sportsradar.workspace subpackage."""
+"""Unit tests for workspace sportsradar.workspace subpackage."""
