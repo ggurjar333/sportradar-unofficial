@@ -6,7 +6,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name='sportradar_unofficial',
-    version='0.1.14',
+    version='0.1.15',
     packages=find_packages(),
     install_requires=[
         'urllib3',
