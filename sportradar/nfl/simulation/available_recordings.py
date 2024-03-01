@@ -1,8 +1,4 @@
 import requests
-from sportradar import logging_helpers
-
-logger = logging_helpers.get_logger(__name__)
-
 
 class AvailableRecordings:
     """
@@ -76,8 +72,6 @@ class AvailableRecordings:
 
         try:
             response = requests.post(self.base_url, headers=headers, json=json_data)
-            logger.info("Data retrieved successfully.")
             return response
         except requests.exceptions.RequestException as err:
-            logger.error(f"Error: {err}")
             return None

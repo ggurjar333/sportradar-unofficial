@@ -1,8 +1,3 @@
-from sportsradar import logging_helpers
-
-logger = logging_helpers.get_logger(__name__)
-
-
 class TeamFeedsTransformer:
     """
     TeamFeedsTransformer class is used to transform team feeds data.
@@ -21,20 +16,18 @@ class TeamFeedsTransformer:
 
     def __init__(self, data: dict):
         self.data = data
+        self.remove_unwanted_feeds()
 
-    def _remove_unwanted_feeds(self):
+    def remove_unwanted_feeds(self):
         for key in self.UNWANTED_KEYS:
             if key in self.data:
                 self.data.pop(key)
 
     def transform_team_roster(self):
-        self._remove_unwanted_feeds()
         return self.data
 
     def transform_seasonal_statistics(self):
-        self._remove_unwanted_feeds()
         return self.data
 
     def transform_team_profile(self):
-        self._remove_unwanted_feeds()
         return self.data

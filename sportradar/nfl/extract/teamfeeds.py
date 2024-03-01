@@ -1,7 +1,4 @@
-from sportradar import logging_helpers
 from sportradar.nfl.workspace.datastore import DataStore, SportRadarFetcher
-
-logger = logging_helpers.get_logger(__name__)
 
 
 class TeamFeeds:
@@ -28,14 +25,10 @@ class TeamFeeds:
         :param api_key:
         :return: The team roster for the given team_id
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/teams/{team_id}/full_roster.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result
 
     def get_seasonal_statistics(
@@ -61,14 +54,10 @@ class TeamFeeds:
         :param api_key:
         :return: The seasonsal statistics feed of the given team_id, nfl_season, and year
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/seasons/{year}/{nfl_season}/teams/{team_id}/statistics.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result
 
     def get_team_profile(
@@ -84,12 +73,8 @@ class TeamFeeds:
         :param api_key:
         :return: The team_profile feed of the given year
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/teams/{team_id}/profile.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully.")
         return result

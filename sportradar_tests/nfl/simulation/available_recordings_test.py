@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, Mock
 import requests
 from sportradar.nfl.simulation.available_recordings import AvailableRecordings
-from sportradar.nfl.simulation import Config
+from sportradar.nfl.simulation.config import Config
 
 
 class TestAvailableRecordings(unittest.TestCase):

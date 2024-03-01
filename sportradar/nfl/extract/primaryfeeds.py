@@ -1,7 +1,4 @@
-from sportradar import logging_helpers
 from sportradar.nfl.workspace.datastore import DataStore, SportRadarFetcher
-
-logger = logging_helpers.get_logger(__name__)
 
 
 class PrimaryFeeds:
@@ -27,15 +24,10 @@ class PrimaryFeeds:
         :param format:
         :param api_key:
         """
-
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variiables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/games/current_season/schedule.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully")
         return result
 
     def get_current_week_schedule(
@@ -51,14 +43,10 @@ class PrimaryFeeds:
         :param api_key:
 
         """
-        if not api_key:
-            logger.error("API key not found in environment variables.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/games/current_week/schedule.{file_format}?api_key={api_key}"
         )
-        logger.info("Data retrieved successfully")
         return result
 
     def get_seasons_schedule(
@@ -82,9 +70,6 @@ class PrimaryFeeds:
         :param api_key:
 
         """
-        if not api_key:
-            logger.error("API key not found in environment variable.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/games/{year}/{season_type}/schedule.{file_format}?api_key={api_key}"
@@ -115,13 +100,8 @@ class PrimaryFeeds:
         :param api_key:
 
         """
-
-        if not api_key:
-            logger.error("API key not found in enviroment variable.")
-            raise ValueError("API key not found in environment variables")
         datastore = DataStore(SportRadarFetcher())
         result = datastore.fetch_data(
             url=f"{self.base_url}/{access_level}/{version}/{language_code}/games/{season_year}/{season_type}/{week_number}/schedule.{file_format}?api_key={api_key}"
         )
-
         return result
